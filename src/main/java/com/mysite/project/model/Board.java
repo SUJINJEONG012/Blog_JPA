@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,15 +47,17 @@ public class Board {
 	 * */
 	// board => many, user => one //한명의 유저는 여러개의 게시물을 쓸 수 있다.
 	
-	@ManyToOne 
+	
+	@ManyToOne(fetch= FetchType.EAGER) //기본전략
 	@JoinColumn(name="userId")
 	private User user; 
 	// DB는 오브젝트를 저장 할 수 없다.FK는 자바는 오브젝트를 저장할 수 없다.
 
-	@OneToMany(mappedBy="board") //mappedBy연관관계의 주인이 아니다(FK키가아니에요). db에컬럼을 만들지마세요.
+	@OneToMany(mappedBy="board", fetch=FetchType.LAZY) //mappedBy연관관계의 주인이 아니다(FK키가아니에요). db에컬럼을 만들지마세요.
 	//join칼럼은 안들어가고 =>데이터베이스는 원자성 때문에 하나의 값만들어가야되는데, 여러개의 댓글이 달릴수도 있으니 !
 	private List<Reply> reply; 
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
 }
