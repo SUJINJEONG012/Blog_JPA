@@ -1,6 +1,7 @@
 package com.mysite.project.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -49,7 +51,9 @@ public class Board {
 	private User user; 
 	// DB는 오브젝트를 저장 할 수 없다.FK는 자바는 오브젝트를 저장할 수 없다.
 
-
+	@OneToMany(mappedBy="board") //mappedBy연관관계의 주인이 아니다(FK키가아니에요). db에컬럼을 만들지마세요.
+	//join칼럼은 안들어가고 =>데이터베이스는 원자성 때문에 하나의 값만들어가야되는데, 여러개의 댓글이 달릴수도 있으니 !
+	private List<Reply> reply; 
 	
 	@CreationTimestamp
 	private Timestamp createDate;
