@@ -17,6 +17,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mysite.project.model.RoleType;
@@ -31,6 +32,13 @@ public class DummyControllerTest {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	
+	@PutMapping("/dummy/user/{id}")
+	public User updateUser(@PathVariable int id) {
+		
+	}
+	
 	
 	@GetMapping("/dummy/user")
 	public List<User> list(){
@@ -54,6 +62,9 @@ public class DummyControllerTest {
 		});
 		return user;
 	}
+	
+	
+	
 	
 	@PostMapping("/dummy/join")
 	public String join(User user) {
