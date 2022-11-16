@@ -35,7 +35,7 @@ public class Reply {
 	@JoinColumn(name="boardId")
 	private Board board;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user;
 	
