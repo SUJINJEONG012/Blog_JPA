@@ -77,10 +77,6 @@ public class DummyControllerTest {
 		return "삭제되었씁니다  id :" +id;
 	}
 	
-	
-
-	
-	
 	@GetMapping("/dummy/user")
 	public List<User> list(){
 		return userRepository.findAll();
