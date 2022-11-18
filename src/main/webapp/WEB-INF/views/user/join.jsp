@@ -7,24 +7,23 @@
 	<form>
 	
 		<div class="form-group">
-			<label for="username">username:</label> <input type="text"
-				class="form-control" placeholder="Enter username" id="username">
+			<label for="username">이름 :</label> <input type="text"
+				class="form-control" placeholder="이름을 입력해주세요." id="username">
 		</div>
 		
 		<div class="form-group">
-			<label for="email">email:</label> <input type="email"
-				class="form-control" placeholder="Enter email" id="email">
+			<label for=password>비밀번호 </label> <input type="password"
+				class="form-control" placeholder="비밀번호를 입력해주세요." id="password">
 		</div>
 		
 		<div class="form-group">
-			<label for=password>password</label> <input type="password"
-				class="form-control" placeholder="Enter password" id="password">
+			<label for="email">이메일 :</label> <input type="email"
+				class="form-control" placeholder="이메일을 입력해주세요." id="email">
 		</div>
-		
-		
+
 	</form>
 	
-	<button id="btn-save" class="btn btn-primary">회원가입완료 </button>
+	<button id="btn-save" class="btn btn-dark">회원가입완료 </button>
 	
 
 </div>
