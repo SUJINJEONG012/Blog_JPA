@@ -18,7 +18,6 @@ public class UserApiController {
 
 	@Autowired
 	private UserService userService;
-
 	
 	//응답 Dto insert로, json타입으로 @RequestBody로 객체넣어주고,user는 강제로 넣어주고,
 
@@ -28,12 +27,11 @@ public class UserApiController {
 	
 	@PostMapping("api/user")
 	public ResponseDto<Integer> save(@RequestBody UserDto userDto){
-		System.out.println("@@@@@ UserApiController");
+		//System.out.println("@@@@@ UserApiController");
 		userDto.setRole(RoleType.USER);
 		int result = userService.join(userDto);
-		return new ResponseDto<Integer>(HttpStatus.OK, result);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
 	
 	}
-
-
+	
 }

@@ -36,15 +36,14 @@ public class DummyControllerTest {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	
-	
+
 	/*
 	 * save함수는 id를 전달하지 않으면 insert를 해주고,
 	 * save함수는 id를 전달하면 해당 id에 대한 데이터가 있으면 update를 해주고,
 	 * save함수는 id를 전달하면 해당 id에 대한 데이터가 없으면 insert를 해요.
 	 * 
 	 * */
+	
 	@Transactional
 	@PutMapping("/dummy/user/{id}")
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) {
@@ -57,8 +56,9 @@ public class DummyControllerTest {
 		return new IllegalArgumentException("수정에 실패하였습니다.");
 	});
 	
-	user.setPassword(requestUser.getPassword());
-	user.setEmail(requestUser.getEmail());
+	
+	//user.setPassword(requestUser.getPassword());
+	//user.setEmail(requestUser.getEmail());
 	
 	//userRepository.save(user); 이걸주석하고 트랜직션을 넣으면 update가 된다. 
 	//=> 더티체킹 

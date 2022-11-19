@@ -11,7 +11,9 @@ import com.mysite.project.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -29,10 +31,28 @@ public class UserDto {
 
 	private Timestamp createDate;
 
-	public static UserDto toEntity(User user) {
-		return UserDto.builder().id(user.getId()).username(user.getUsername()).password(user.getPassword())
-				.email(user.getEmail()).createDate(user.getCreateDate()).build();
+	
 
+	//@Builder
+	public UserDto(int id, String username, String password, String email,Timestamp createDate) {
+		this.id=id;
+	    this.username=username;
+	    this.password=password;
+	    this.email=email;
+	    this.createDate=createDate;
+	}
+	
+	
+	//toEntity()메서드를 통해 Service > Database(Entity)로 Data를 전달할 때 Dto를 통해서 전달
+	public  User toEntity() {
+		User user = User.builder()
+				.id(id)
+				.username(username)
+				.password(password)
+				.email(email)
+				.createDate(createDate)
+				.build();
+		return user;
 	}
 	
 	

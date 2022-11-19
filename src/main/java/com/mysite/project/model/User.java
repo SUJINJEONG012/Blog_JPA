@@ -16,7 +16,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import lombok .* ;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +28,6 @@ public class User {
 	private int id; //오라클은 시퀀스,mysql은 auto-increment
 	
 	//유저네임이 null값이 되면 안되기때문에
-	
 	@Column(nullable= false, length=30)
 	private String username;
 	
