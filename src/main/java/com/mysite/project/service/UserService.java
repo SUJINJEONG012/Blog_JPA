@@ -23,10 +23,12 @@ public class UserService {
 		userRepository.save(userDto.toEntity());	
 	}
 	
-	@Transactional(readOnly=true)
-	public User login(User user) {
-		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-	}
+	
+//전통적인 로그인 방식	
+//	@Transactional(readOnly=true)
+//	public User login(User user) {
+//		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+//	}
 	
 	
 	

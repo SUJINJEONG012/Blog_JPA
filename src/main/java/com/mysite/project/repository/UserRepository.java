@@ -7,8 +7,14 @@ import com.mysite.project.model.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	User findByUsernameAndPassword(String username, String password);
 	
-//	@Query(value="")
-//	User login()
+	
+
 }
+
+
+//전통적인로그인방식
+//User findByUsernameAndPassword(String username, String password);
+
+//@Query(value="")
+//User login()

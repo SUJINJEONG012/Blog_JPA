@@ -27,7 +27,7 @@ public class UserApiController {
 	//실행이 잘되면dto결과값 보내준다. service단에 설정한
 	//try, catch문으로 예외처리로 ! 성공처리가 되서 콘솔창에
 	
-	@PostMapping("api/user")
+	@PostMapping("auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody UserDto userDto){
 		//System.out.println("@@@@@ UserApiController");
 		userDto.setRole(RoleType.USER);
@@ -37,6 +37,8 @@ public class UserApiController {
 	}
 	
 	
+	
+//전통적인로그인	
 //	@PostMapping("api/user/login")
 //	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
 //		System.out.println("로그인 : @@@@");

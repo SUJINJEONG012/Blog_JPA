@@ -57,9 +57,9 @@
 					<c:when test="${empty principal}">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a class="nav-link"
-								href="/loginForm">로그인</a></li>
+								href="/auth/loginForm">로그인</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="/joinForm">회원가입</a></li>
+								href="/auth/joinForm">회원가입</a></li>
 						</ul>
 					</c:when>
 
