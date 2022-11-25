@@ -1,5 +1,7 @@
 package com.mysite.project.controller.api;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -29,9 +31,20 @@ public class UserApiController {
 	public ResponseDto<Integer> save(@RequestBody UserDto userDto){
 		//System.out.println("@@@@@ UserApiController");
 		userDto.setRole(RoleType.USER);
-		int result = userService.join(userDto);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+		userService.join(userDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	
 	}
 	
+	
+//	@PostMapping("api/user/login")
+//	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
+//		System.out.println("로그인 : @@@@");
+//		User principal= userService.login(user);//principal(접근주체)
+//		
+//		if(principal != null) {
+//			session.setAttribute("principal", principal);
+//		}
+//		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);	
+//	}	
 }
