@@ -33,24 +33,26 @@ public class UserDto {
 
 	
 
-	//@Builder
-	public UserDto(int id, String username, String password, String email,Timestamp createDate) {
+	@Builder
+	public UserDto(int id, String username, String password, String email,Timestamp createDate, RoleType role) {
 		this.id=id;
 	    this.username=username;
 	    this.password=password;
 	    this.email=email;
 	    this.createDate=createDate;
+	    this.role= role;
 	}
 	
 	
 	//toEntity()메서드를 통해 Service > Database(Entity)로 Data를 전달할 때 Dto를 통해서 전달
-	public  User toEntity() {
+	public  User toEntity() { //save
 		User user = User.builder()
 				.id(id)
 				.username(username)
 				.password(password)
 				.email(email)
 				.createDate(createDate)
+				.role(role)
 				.build();
 		return user;
 	}
