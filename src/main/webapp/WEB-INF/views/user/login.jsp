@@ -12,8 +12,8 @@
 		
 		
 		<div class="form-group">
-			<label for=password>password</label> <input type="password"
-				class="form-control" placeholder="Enter password" name="passoword">
+			<label for="password">password</label> <input type="password"
+				class="form-control" placeholder="Enter password" name="password">
 		</div>
 		
 		<!-- <div class="form-group form-check">

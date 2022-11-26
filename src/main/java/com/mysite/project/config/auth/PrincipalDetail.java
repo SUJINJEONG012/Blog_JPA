@@ -22,6 +22,7 @@ import lombok.Getter;
 
 
 @Data
+
 public class PrincipalDetail implements UserDetails {
 	
     private User user; // 객체를 품고있는거, 콤포지션	
@@ -80,7 +81,7 @@ public class PrincipalDetail implements UserDetails {
 //		});
 		
 		//람다식으로 
-		collectors.add(()->{return "ROLE_" + user.getRole();});
+		collectors.add(()->{return "ROLE_"+user.getRole();});
 		return collectors;
 	}
 }

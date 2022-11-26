@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
+import com.mysite.project.dto.UserDto;
 import com.mysite.project.model.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{

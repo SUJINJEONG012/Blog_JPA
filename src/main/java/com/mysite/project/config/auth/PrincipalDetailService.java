@@ -1,6 +1,7 @@
 package com.mysite.project.config.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,10 +23,14 @@ public class PrincipalDetailService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User principal= userRepository.findByUsername(username)
-				.orElseThrow(()-> {
+		System.out.println("@@@@@@@@@@@@@ PrincipalDetailService :: " );
+		
+		User principal= userRepository.findByUsername(username).orElseThrow(()-> {
+					System.out.println("@@@@userRepository ");	
 			return new UsernameNotFoundException("해당사용자를 찾을 수 없습니다. " + username);
 		});
+		
+		System.out.println("principal ::: " + principal);
 		return new PrincipalDetail(principal); //시큐리티세션에 유저정보가 저장이 됨
 	}
 }
