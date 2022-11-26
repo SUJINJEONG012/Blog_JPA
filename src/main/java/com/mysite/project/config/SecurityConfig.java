@@ -40,13 +40,17 @@ public class SecurityConfig   {
           
 	        http
 	        .csrf().disable()//csrf 토큰 비활성화 (테스트시걸어두는게 좋음)
+	        
 	        .authorizeRequests()
 	        .antMatchers("/","/auth/**","/js/**","/css/**", "/images/**").permitAll()
             .anyRequest()
             .authenticated()
+            
             .and()
             .formLogin()
-            .loginPage("/auth/loginForm");
+            .loginPage("/auth/loginForm")
+            .loginProcessingUrl("/auth/loginProc") //스프링 시큐리티가 로그인을 가로챈다.
+	        .defaultSuccessUrl("/"); //정상적으로 요청이 완료
 	        
 	             
 	        return http.build();

@@ -25,10 +25,6 @@ public class UserApiController {
 
 	@Autowired
 	private UserService userService;
-	
-	
-	
-	
 
 	
 	@PostMapping("auth/joinProc")
@@ -37,7 +33,6 @@ public class UserApiController {
 		
 		userService.join(userDto);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-	
 	}
 	
 	
