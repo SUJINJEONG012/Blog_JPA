@@ -28,7 +28,7 @@ public class User {
 	private int id; //오라클은 시퀀스,mysql은 auto-increment
 	
 	//유저네임이 null값이 되면 안되기때문에
-	@Column(nullable= false, length=30)
+	@Column(nullable= false, length=100,unique = true)
 	private String username;
 	
 	@Column(nullable= false, length=200) //비밀번호 암호화(해쉬)

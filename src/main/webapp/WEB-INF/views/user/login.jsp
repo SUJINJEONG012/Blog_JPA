@@ -7,20 +7,20 @@
 	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
 			<label for="username">username:</label> <input type="text" 
-				class="form-control" placeholder="Enter username" name="username" id="username">
+				class="form-control" placeholder="Enter username" name="username" >
 		</div>
 		
 		
 		<div class="form-group">
 			<label for=password>password</label> <input type="password"
-				class="form-control" placeholder="Enter password" name="passoword" id="password">
+				class="form-control" placeholder="Enter password" name="passoword">
 		</div>
 		
-		<div class="form-group form-check">
+		<!-- <div class="form-group form-check">
 			<label class="form-check-label"> <input name="remember"
 				class="form-check-input" type="checkbox"> Remember me
 			</label>
-		</div>
+		</div> -->
 		
 		<button id="btn-login" class="btn btn-primary">로그인 </button>
 		
