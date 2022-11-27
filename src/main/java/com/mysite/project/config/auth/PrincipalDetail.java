@@ -21,8 +21,7 @@ import lombok.Getter;
  * */
 
 
-@Data
-
+@Getter
 public class PrincipalDetail implements UserDetails {
 	
     private User user; // 객체를 품고있는거, 콤포지션	

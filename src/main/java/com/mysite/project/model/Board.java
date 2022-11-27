@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,9 +36,8 @@ public class Board {
 	private String title;
 
 	@Lob // 대용량데이터
-	private String content; // 썸머노트라이브러리 <>
-
-	@ColumnDefault("0")
+	private String content; // 썸머노트라이브러리
+	
 	private int count; // 조회수
 
 	
@@ -46,6 +47,7 @@ public class Board {
 	 * 필드는 userId 만들어지고
 	 * */
 	// board => many, user => one //한명의 유저는 여러개의 게시물을 쓸 수 있다.
+	
 	
 	
 	@ManyToOne(fetch= FetchType.EAGER) //기본전략
