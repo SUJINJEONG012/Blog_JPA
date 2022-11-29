@@ -20,11 +20,11 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
-	@GetMapping({"","/"})
-	//메인페이지로 갈때 데이터를 가져가야한다.
-	public String index(Model model,@PageableDefault(size=2, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
+	@GetMapping("/board/boardList")
+	//게시판 목록 갈때 데이터를 가져가야한다.
+	public String list(Model model,@PageableDefault(size=2, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
 		model.addAttribute("boards", boardService.boardList(pageable));
-		return "index"; //viewResolver 작동 
+		return "board/list"; //viewResolver 작동 
 	}
 	
 	//USER권한 필요
@@ -33,6 +33,7 @@ public class BoardController {
 		return "board/saveForm";
 	}
 	
+
 	//상세보기 
 	@GetMapping("/board/{id}")
 	public String findById(@PathVariable int id, Model model ) {
@@ -40,4 +41,12 @@ public class BoardController {
 		return "board/detail";
 	}
 	
+	
+	//글수정하기 
+	@GetMapping("/board{id}/updateForm")
+	public String updateForm(@PathVariable int id, Model model) {
+		model.addAttribute("board", boardService.boardView(id));
+		return "board/updateForm";
+	}
+
 }
