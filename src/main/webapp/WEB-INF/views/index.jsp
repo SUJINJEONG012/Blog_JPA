@@ -14,7 +14,7 @@
 				<p class="card-text">${board.createDate }</p>
 				<p class="card-text">${board.user.username }</p>
 
-				<a href="#" class="btn btn-dark">상세보기</a>
+				<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 			</div>
 		</div>
 	</c:forEach>

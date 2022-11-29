@@ -37,9 +37,27 @@ public class BoardService {
 	
 	
 	//글 목록리스트
+	@Transactional(readOnly=true)
 	public Page<Board> boardList(Pageable pageable) {	
 		return boardRepository.findAll(pageable);
 	}
+	
+	//글 상세보기 
+	@Transactional(readOnly=true)
+	public Board boardView(int id) {
+		return boardRepository.findById(id).orElseThrow(()->{
+			return new IllegalArgumentException("글 상세보기실패: 아이디를 찾을 수 없습니다");
+		});
+	}
+	
+	//글삭제
+	@Transactional
+	public void boardDelete(int id) {
+		boardRepository.deleteById(id);
+	}
+	
+	
+	
 
 
 }

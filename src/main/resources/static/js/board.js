@@ -4,6 +4,11 @@ let index = {
 			this.save();
 		});
 		
+		$("#btn-delete").on("click", () => {
+			this.deleteById();
+		});
+		
+		
 	},
 	
 	save: function() {
@@ -28,6 +33,23 @@ let index = {
 		});
 		
 	},	
+	
+	deleteById: function() {
+		let id = $("id").text();
+		$.ajax({
+		type:"DELETE",
+		url:"/api/board/"+id, 
+		contentType:"application/json; charset=utf-8",  
+		dataType:"json" 
+		}).done(function(resp){
+			alert("삭제가 완료되었슴니다.");
+			//location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+		
+	},	
+	
 	
 }
 
