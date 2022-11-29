@@ -35,7 +35,7 @@ let index = {
 	},	
 	
 	deleteById: function() {
-		let id = $("id").text();
+		let id = $("#id").text();
 		$.ajax({
 		type:"DELETE",
 		url:"/api/board/"+id, 
@@ -43,7 +43,7 @@ let index = {
 		dataType:"json" 
 		}).done(function(resp){
 			alert("삭제가 완료되었슴니다.");
-			//location.href="/";
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

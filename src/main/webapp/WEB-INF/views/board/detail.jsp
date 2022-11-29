@@ -4,7 +4,7 @@
 <div class="container" style="min-height:450px">
 
 <div>
-글번호 :<span>${board.id}</span>
+글번호 :<span id="id">${board.id}</span>
 작성자 :<span>${board.user.username}</span>
 </div>
 
