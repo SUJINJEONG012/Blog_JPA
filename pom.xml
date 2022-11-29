@@ -9,6 +9,8 @@
 		<version>2.7.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
+	
 	<groupId>com.example</groupId>
 	<artifactId>blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -18,7 +20,11 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-	    
+	    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring</artifactId>
+        <version>1.8-SNAPSHOT”</version>
+    </dependency>
 	    <!-- 시큐리티 사용  -->
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
