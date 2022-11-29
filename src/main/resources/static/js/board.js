@@ -7,8 +7,6 @@ let index = {
 		$("#btn-delete").on("click", () => {
 			this.deleteById();
 		});
-		
-		
 	},
 	
 	save: function() {
@@ -17,7 +15,6 @@ let index = {
 			title:$("#title").val(), 
 			content:$("#content").val(),
 		};
-		
 		
 		$.ajax({
 		type:"POST",
