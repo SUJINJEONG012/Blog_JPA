@@ -20,9 +20,5 @@
 	</c:forEach>
 
 
-
-
-
-
 </div>
 <%@ include file="layout/footer.jsp"%>
