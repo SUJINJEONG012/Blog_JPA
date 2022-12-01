@@ -33,9 +33,10 @@ let index = {
 		});
 		
 	},
+	
 	update: function() {
 		
-		let id = $("#id").val();
+		let id = $("#id").val(); //아이디값 가져오기
 		
 		let data = {
 			title:$("#title").val(), 
@@ -43,7 +44,7 @@ let index = {
 		};
 		
 		$.ajax({
-		type:"PUT",
+		type:"PUT",// 수정
 		url:"/api/board/"+id, 
 		data:JSON.stringify(data), 
 		contentType:"application/json; charset=utf-8",  
