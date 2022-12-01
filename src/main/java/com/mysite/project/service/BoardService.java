@@ -60,12 +60,13 @@ public class BoardService {
 	
 	//글수정
 	@Transactional
-	public void 글수정하기(int id, Board requestBoard) {
+	public void updateForm(int id, Board requestBoard) {
 	// 글 수정할려면 영속화를 시켜야함
 	Board board = boardRepository.findById(id).orElseThrow(()->{
 		return new IllegalArgumentException("글 찾기실패: 아이디를 찾을 수 없습니다");
 	});
 	
+	//영속화된 board
 	board.setTitle(requestBoard.getTitle());
 	board.setContent(requestBoard.getContent());
 	//해당 함수로 종료시 Service가 종료, 트랜잭션이 종료. 이때 더티체킹
