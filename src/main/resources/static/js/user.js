@@ -3,6 +3,10 @@ let index = {
 		$("#btn-save").on("click", () => { //function를 사용하지않은 이유는 this를 바인딩하기 위해서
 			this.save();
 		});
+		//회원정보 수정하기 
+		$("#btn-update").on("click", ()=>{
+			this.update();
+		})
 		
 	},
 	
@@ -34,6 +38,32 @@ let index = {
 		});
 		
 	},	
+	
+	
+	update : function(){
+		/*
+		username은 수정 안 할거니까 username 없이,
+		hidden으로 넣어준 아이디와 비밀번호와 이메일만 받으면 된다.
+		*/ 
+	
+		let data = {
+			id : $("id").val(),
+			password: $("#password").val(),
+			email: $("#email").val()
+		};
+		$.ajax({
+			type:"PUT",
+			url:"/user",
+			data: JSON.stringify(data),
+			contentType: "application/json:charset=utf-8",
+			dataType: "json"
+		}).done(function(rest){
+			alert("회원수정이 완료되었습니다.");
+			location.href="/"
+		}).fail(function(error){
+			alert(JSON.stringify(error))
+		})	
+	},
 	
 }
 
