@@ -23,25 +23,30 @@ public class BoardApiController {
 	@Autowired
 	private BoardService boardService;
 	
+	//글쓰기 
 	@PostMapping("/api/board")
 	public ResponseDto<Integer> save(@RequestBody BoardDto boardDto, @AuthenticationPrincipal PrincipalDetail principal ){
 		boardService.saveForm(boardDto, principal.getUser());
 		return new ResponseDto<Integer> (HttpStatus.OK.value(),1);
 	}
 	
+	//글 수정 
 	@PutMapping("/api/board/{id}")
-	public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board){
-		boardService.글수정하기(id,board);
+	public ResponseDto<Integer> updateForm(@PathVariable int id, @RequestBody Board board){
+		boardService.updateForm(id,board);
 		return new ResponseDto<Integer> (HttpStatus.OK.value(),1);
 	}
 	
-	
+	//글 삭제
 	@DeleteMapping("/api/board/{id}")
 	public ResponseDto<Integer> deleteById(@PathVariable int id) {
 		boardService.boardDelete(id);
 		System.out.println("@@@ 삭제 아이디 : " + id);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
+	
+	
+	
 	
 	
 }

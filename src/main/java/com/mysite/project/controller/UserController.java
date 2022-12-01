@@ -19,4 +19,10 @@ public class UserController {
 	public String loginForm() {
 		return "/user/login";
 	}
+	
+	@GetMapping("/user/mypage")
+	public String myPage() {
+		return "/user/mypage";
+	}
+	
 }

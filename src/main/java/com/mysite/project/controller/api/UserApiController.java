@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,6 +35,16 @@ public class UserApiController {
 		userService.join(userDto);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
+	
+	//회원수정
+	@PutMapping("/user")
+	//@RequestBody json데이터를받기위해서 무조건 사용해야한다.
+	public ResponseDto<Integer> myPageUpdate(@RequestBody UserDto userDto){
+		userService.myPageUpdate(userDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
+	
+	
 	
 	
 	

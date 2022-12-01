@@ -43,8 +43,8 @@ public class BoardController {
 	
 	
 	//글수정하기 
-	@GetMapping("/board{id}/updateForm")
-	public String updateForm(@PathVariable int id, Model model) {
+	@GetMapping("/board/{id}/updateForm")
+	public String update(@PathVariable int id, Model model) {
 		model.addAttribute("board", boardService.boardView(id));
 		return "board/updateForm";
 	}
