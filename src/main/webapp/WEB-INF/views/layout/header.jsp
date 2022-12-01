@@ -66,7 +66,7 @@
 								href="/board/boardList">목록</a></li>
 									
 							<li class="nav-item"><a class="nav-link"
-								href="/user/updateForm">회원정보</a></li>
+								href="/user/mypage">회원정보</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="/logout">로그아웃</a></li>
 						</ul>
