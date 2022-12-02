@@ -55,7 +55,7 @@ let index = {
 			type:"PUT",
 			url:"/user",
 			data: JSON.stringify(data),
-			contentType: "application/json:charset=utf-8",
+			contentType: "application/json; charset=utf-8",
 			dataType: "json"
 		}).done(function(rest){
 			console.log("dd????")

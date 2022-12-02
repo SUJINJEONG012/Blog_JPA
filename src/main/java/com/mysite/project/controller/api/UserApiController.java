@@ -30,7 +30,6 @@ public class UserApiController {
 	
 	@PostMapping("auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody UserDto userDto){
-		System.out.println("@@@@@ UserApiController");
 		
 		userService.join(userDto);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
@@ -38,14 +37,10 @@ public class UserApiController {
 	
 	//회원수정
 	@PutMapping("/user")
-	
-	//@RequestBody json데이터를받기위해서 무조건 사용해야한다.
 	public ResponseDto<Integer> update(@RequestBody User user){
 		System.out.println("api controller user : " );
 		System.out.print( "user : : @@@ :::" + user);
 		userService.회원수정(user);
-		
-		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	

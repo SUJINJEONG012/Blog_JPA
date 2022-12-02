@@ -43,6 +43,7 @@ public class UserService {
 		 */
 		
 		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
+			System.out.println("@@ persistance  :: " + user.getId());
 			return new IllegalArgumentException("회원 찾기 실패");
 		});
 		
