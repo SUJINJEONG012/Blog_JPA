@@ -47,7 +47,7 @@ let index = {
 		*/ 
 	
 		let data = {
-			id : $("id").val(),
+			id : $("#id").val(),
 			password: $("#password").val(),
 			email: $("#email").val()
 		};
