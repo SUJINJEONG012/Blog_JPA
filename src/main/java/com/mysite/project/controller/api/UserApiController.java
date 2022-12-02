@@ -38,9 +38,14 @@ public class UserApiController {
 	
 	//회원수정
 	@PutMapping("/user")
+	
 	//@RequestBody json데이터를받기위해서 무조건 사용해야한다.
-	public ResponseDto<Integer> myPageUpdate(@RequestBody UserDto userDto){
-		userService.myPageUpdate(userDto);
+	public ResponseDto<Integer> update(@RequestBody User user){
+		System.out.println("api controller user : " );
+		System.out.print( "user : : @@@ :::" + user);
+		userService.회원수정(user);
+		
+		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	

@@ -33,7 +33,8 @@ public class UserService {
 	
 	
 	@Transactional
-	public void myPageUpdate(User user) {
+	public void 회원수정(User user) {
+		
 		/*
 		 * 수정시에는 영속성 컨텍스트 User 오브젝트영속화시키고, 영속화된 User오브젝트를 수정
 		 * select를 해서 User오브젝트를 DB로부터 가져오는 이유는 영속화 하기 위해
@@ -50,6 +51,8 @@ public class UserService {
 		//사용자로부터 비밀번호를 받는다.(패스워드를 암호화해서 넣어야된다.)
 		String rawPassword = user.getPassword();
 		String encPassword = encoder.encode(rawPassword);
+		System.out.println("rawPassword" + rawPassword);
+		System.out.println("encPassword" + encPassword);
 		
 		persistance.setPassword(encPassword);
 		persistance.setEmail(user.getEmail());

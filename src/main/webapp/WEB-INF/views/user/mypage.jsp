@@ -12,6 +12,7 @@
 	   
 		<div class="form-group">
 			<label for="username">이름 :</label> <input type="text"
+			
 				class="form-control" value="${principal.user.username}"  id="username" readonly>
 		</div>
 		
@@ -19,6 +20,7 @@
 			<label for=password>비밀번호 </label> <input type="password"
 				class="form-control" id="password">
 		</div>
+		
 		
 		<div class="form-group">
 			<label for="email">이메일 :</label> <input type="email"

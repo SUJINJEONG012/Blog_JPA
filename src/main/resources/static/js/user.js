@@ -58,8 +58,9 @@ let index = {
 			contentType: "application/json:charset=utf-8",
 			dataType: "json"
 		}).done(function(rest){
-			alert("회원수정이 완료되었습니다.");
-			location.href="/"
+			console.log("dd????")
+			//alert("회원수정이 완료되었습니다.");
+			//location.href="/"
 		}).fail(function(error){
 			alert(JSON.stringify(error))
 		})	
