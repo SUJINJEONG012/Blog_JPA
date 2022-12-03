@@ -40,7 +40,7 @@ public class UserApiController {
 	public ResponseDto<Integer> update(@RequestBody User user){
 		System.out.println("api controller user : " );
 		System.out.print( "user : : @@@ :::" + user);
-		userService.회원수정(user);
+		userService.userUpate(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	

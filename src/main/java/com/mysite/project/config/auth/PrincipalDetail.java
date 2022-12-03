@@ -41,6 +41,7 @@ public class PrincipalDetail implements UserDetails {
 	public String getUsername() {
 		return user.getUsername();
 	}
+	
 
 	// 계정이 만료되지않았는지 리턴 (true:만료안됨)
 	@Override
