@@ -11,7 +11,7 @@ let index = {
 	},
 	
 	save: function() {
-		// alert("user의 svae할수있음 ");
+		// alert("user의 save 할수있음 ");
 		let data = {
 			username:$("#username").val(), //username이 들고있는값을변수에다가 바인딩을 한다. 
 			password:$("#password").val(),
