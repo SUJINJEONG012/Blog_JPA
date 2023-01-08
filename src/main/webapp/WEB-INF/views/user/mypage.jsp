@@ -11,8 +11,7 @@
 	    <input type="hidden" id="id" value="${principal.user.id}" />
 	   
 		<div class="form-group">
-			<label for="username">이름 :</label> <input type="text"
-			
+			<label for="username">이름 :</label> <input type="text"			
 				class="form-control" value="${principal.user.username}"  id="username" readonly>
 		</div>
 		

@@ -47,9 +47,9 @@ let index = {
 		*/ 
 	
 		let data = {
-			id : $("#id").val(),
-			password: $("#password").val(),
-			email: $("#email").val()
+			id : $("#id").val(), //어떤회원이 수정했는지 확인하기 위해서
+			password: $("#password").val(), //패스워드받
+			email: $("#email").val() //이메일받기
 		};
 		$.ajax({
 			type:"PUT",
@@ -57,7 +57,7 @@ let index = {
 			data: JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
 			dataType: "json"
-		}).done(function(rest){
+		}).done(function(resp){
 			console.log("dd????")
 			alert("회원수정이 완료되었습니다.");
 			location.href="/"
