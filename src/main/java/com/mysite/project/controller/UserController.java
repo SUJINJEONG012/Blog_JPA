@@ -24,7 +24,7 @@ public class UserController {
 	}
 	//수정하기 
 	@GetMapping("/user/mypage")
-	public String myPage(@AuthenticationPrincipal PrincipalDetail principalDetail) {
+	public String myPage(@AuthenticationPrincipal PrincipalDetail principal) {
 		return "/user/mypage";
 	}
 	

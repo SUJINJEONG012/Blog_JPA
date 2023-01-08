@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -40,7 +39,6 @@ public class SecurityConfig{
 	 * 시큐리티가 대신 로그인해주는데 password를 가로채기할때 해당 password가 뭘로 해쉬가 되어
 	 * 회원가입이 되었는지 알아야, 로그인할 때 같은해쉬로 암호화해서 db에있는 해쉬랑 비교할 수있음
 	 * */
-	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(principalDetailService).passwordEncoder(encodePWD());
 	}
