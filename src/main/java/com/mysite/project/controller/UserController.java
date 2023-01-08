@@ -22,7 +22,7 @@ public class UserController {
 	public String loginForm() {
 		return "/user/login";
 	}
-	
+	//수정하기 
 	@GetMapping("/user/mypage")
 	public String myPage(@AuthenticationPrincipal PrincipalDetail principalDetail) {
 		return "/user/mypage";
