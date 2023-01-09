@@ -23,7 +23,7 @@
 		</div> -->
 		
 		<button id="btn-login" class="btn btn-primary">로그인 </button>
-		<a href="/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code"><img src="/images/kakao_login_button.png" alt="kakao login button"></a>
+		<a href="https://kauth.kakao.com/oauth/authorize?client_id=37bf2429bee5601aea377f8d3d0add90&redirect_uri=http://localhost:8010/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png" alt="kakao login button"></a>
 		
 	</form>
 
