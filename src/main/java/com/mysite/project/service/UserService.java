@@ -19,7 +19,7 @@ public class UserService {
 
 	//생성자 주입
 	private final UserRepository userRepository;
-	private final BCryptPasswordEncoder encoder; //비밀번호암호화
+	private final BCryptPasswordEncoder encoder; //비밀번호암호화	
 	
 	
 	@Transactional

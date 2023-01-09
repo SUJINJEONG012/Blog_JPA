@@ -2,6 +2,7 @@ package com.mysite.project.model;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
