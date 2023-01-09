@@ -1,7 +1,7 @@
 package com.mysite.project.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +21,7 @@ public class UserService {
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder; //비밀번호암호화
 	
-		
+	
 	@Transactional
 	public void join(UserDto userDto) {
 	    String rawPassword = userDto.getPassword();//1234

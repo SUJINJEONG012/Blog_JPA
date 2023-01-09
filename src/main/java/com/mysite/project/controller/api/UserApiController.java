@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mysite.project.config.auth.PrincipalDetail;
+import com.mysite.project.config.auth.PrincipalDetailService;
 import com.mysite.project.dto.ResponseDto;
 import com.mysite.project.dto.UserDto;
 import com.mysite.project.model.User;
@@ -28,7 +28,8 @@ public class UserApiController {
 
 	@Autowired
 	private UserService userService;
-
+	
+	private final PrincipalDetailService principalDetailService;
 	
 	@PostMapping("auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody UserDto userDto){
@@ -39,24 +40,19 @@ public class UserApiController {
 	
 	//회원수정
 	@PutMapping("/user")
-	public ResponseDto<Integer> update(@RequestBody User user, 
-			
-			@AuthenticationPrincipal PrincipalDetail principal,
-			HttpSession session
-			){
+	public ResponseDto<Integer> update(@RequestBody User user, HttpSession session){
 //		System.out.println("api controller user : " );
 //		System.out.print( "user : : @@@ :::" + user);
 		userService.userUpate(user);
 		
 		//여기서는 트랜잭션이 종료되기 때문에 DB에 값은 변경이 됐음.
 		//하지만 세션값은변경되지 않은 상태이기 때문에 직접 세션값을 변경해줄거임
-		Authentication authentication = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
-		//시큐리티 컨덱스트에 Authentication객체를 집어넣으면 된다.
+		//세션등록
+		UserDetails userDetail = principalDetailService.loadUserByUsername(user.getUsername());
+		Authentication authentication = new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		securityContext.setAuthentication(authentication);
-		
 		session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
-		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	

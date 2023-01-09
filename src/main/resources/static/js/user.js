@@ -48,6 +48,7 @@ let index = {
 	
 		let data = {
 			id : $("#id").val(), //어떤회원이 수정했는지 확인하기 위해서
+			username: $("#username").val(),
 			password: $("#password").val(), //패스워드받
 			email: $("#email").val() //이메일받기
 		};
