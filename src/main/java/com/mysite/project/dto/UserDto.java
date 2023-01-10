@@ -32,7 +32,6 @@ public class UserDto {
 	private Timestamp createDate;
 
 	
-
 	@Builder
 	public UserDto(int id, String username, String password, String email,Timestamp createDate, RoleType role) {
 		this.id=id;

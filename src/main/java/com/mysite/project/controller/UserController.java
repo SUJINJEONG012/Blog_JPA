@@ -9,7 +9,13 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -21,6 +27,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysite.project.config.auth.PrincipalDetail;
+import com.mysite.project.config.auth.PrincipalDetailService;
+import com.mysite.project.dto.UserDto;
 import com.mysite.project.model.KakaoProfile;
 import com.mysite.project.model.OAuthToken;
 import com.mysite.project.model.User;
@@ -35,8 +43,12 @@ import com.mysite.project.service.UserService;
 public class UserController {
 
 	@Autowired
-	private  UserService userService;
-	
+	private UserService userService;
+
+	//생성자 주입
+	@Autowired
+	private  PrincipalDetailService principalDetailService;
+
 	@GetMapping("/auth/joinForm")
 	public String joinForm() {
 		return "/user/join";
@@ -48,7 +60,7 @@ public class UserController {
 	}
 
 	@GetMapping("/auth/kakao/callback")
-	public @ResponseBody String kakaoCallBack(String code) {
+	public String kakaoCallBack(String code) {
 
 		// POST방식으로 key=value 데이터를 요청 (카카오쪽으로)
 		// Retrofit2
@@ -56,6 +68,7 @@ public class UserController {
 		// RestTemplate
 
 		RestTemplate rt = new RestTemplate();
+		
 		// HttpHeader 오브젝트 생성
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -74,12 +87,14 @@ public class UserController {
 		ResponseEntity<String> response = rt.exchange("https://kauth.kakao.com/oauth/token",  // 토큰발급주소
 				HttpMethod.POST,
 				kakaoTokenRequest, 
-				String.class);
+				String.class
+		);
 		
 		
 		//Gson, Json Simple, ObjectMapper
 		ObjectMapper objectMapper = new ObjectMapper();
 		OAuthToken oauthToken = null;
+		
 		try {
 			 oauthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
 		} catch (JsonMappingException e) {
@@ -89,7 +104,8 @@ public class UserController {
 			
 			e.printStackTrace();
 		}
-		//System.out.println("카카오 액세스 토큰 : " + oauthToken.getAccess_token());
+		
+		System.out.println("카카오 액세스 토큰 : " + oauthToken.getAccess_token());
 		
 		
 		
@@ -99,6 +115,7 @@ public class UserController {
 		HttpHeaders headers2 = new HttpHeaders();
 		headers2.add("Authorization", "Bearer "+oauthToken.getAccess_token());
 		headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+		
 		// HttpHeader와 HttpBody를 하나의 오브젝트에 담기
 		HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest2 = new HttpEntity<>(headers2);
 
@@ -107,7 +124,8 @@ public class UserController {
 				"https://kapi.kakao.com/v2/user/me",  // 토큰발급주소
 				HttpMethod.POST,
 				kakaoProfileRequest2, 
-				String.class);
+				String.class		
+	    );
 	
 		System.out.println(response2.getBody());
 		
@@ -128,22 +146,39 @@ public class UserController {
 		System.out.println(" 블로그서버 유저네임 : " + kakaoProfile.getKakao_account().getEmail()+ "_" + kakaoProfile.getId());
 		System.out.println(" 블로그서버 이메일 : " + kakaoProfile.getKakao_account().getEmail()+ "_" + kakaoProfile.getId());
 	    
+		//UUID 란 :중복되지 않는 어떤특정값을 만들어내는 알고리즘
 		UUID garbagePassword = UUID.randomUUID(); //랜덤값 
 	    System.out.println(" 블로그서버 비밀번호 : " + garbagePassword);
 		
 	    
-	    User user = User.builder()
-	    		.username( kakaoProfile.getKakao_account().getEmail()+ "_" + kakaoProfile.getId())
+	    User kakaoUser = User.builder()
+	    		.username(kakaoProfile.getKakao_account().getEmail()+ "_" + kakaoProfile.getId())
 	    		.password(garbagePassword.toString())
 	    		.email(kakaoProfile.getKakao_account().getEmail())
+	    		//.oauth("kakao")
 	            .build();
+   
 	    
-	    
-	    userService.join(user);
-	    
-		
-		return  response2.getBody(); //회원정보 결과가 담겨서 보여질 것
-
+	     //가입자 혹은 비가입자 체크 해서 처리
+	 		User originUser = userService.findUser(kakaoUser.getUsername());
+	 		
+	 		if(originUser.getUsername() == null) {
+	 			System.out.println("기존 회원이 아니기에 자동 회원가입을 진행합니다");
+	 			System.out.println(kakaoUser.getUsername());
+	 			userService.findUser(kakaoUser.getUsername());
+	 			
+	 		}
+	 		
+	 		System.out.println("자동 로그인을 진행합니다.");
+	 		// 로그인 처리
+	 		//자동로그인 진행
+	 		UserDetails userDetail = principalDetailService.loadUserByUsername(kakaoUser.getUsername());
+			Authentication authentication = new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
+			SecurityContext securityContext = SecurityContextHolder.getContext();
+			securityContext.setAuthentication(authentication);
+			
+			  
+	   return "redirect:/"; 
 		
 	}
 

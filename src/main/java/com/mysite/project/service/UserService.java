@@ -20,6 +20,15 @@ public class UserService {
 	//생성자 주입
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder; //비밀번호암호화	
+
+	
+	@Transactional(readOnly = true)
+	public User findUser(String username) {
+		User user = userRepository.findByUsername(username).orElseGet(()->{
+			return new User();
+		});
+		return user;
+	}
 	
 	
 	@Transactional
@@ -32,6 +41,7 @@ public class UserService {
 	}
 	
 	
+
 	@Transactional
 	public void userUpate(User user) {
 		
