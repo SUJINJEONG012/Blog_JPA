@@ -1,20 +1,17 @@
 package com.mysite.project.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.project.dto.BoardDto;
-import com.mysite.project.dto.UserDto;
+import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.model.Board;
-import com.mysite.project.model.RoleType;
+import com.mysite.project.model.Reply;
 import com.mysite.project.model.User;
 import com.mysite.project.repository.BoardRepository;
+import com.mysite.project.repository.ReplyRepository;
 import com.mysite.project.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -25,7 +22,10 @@ public class BoardService {
 
 	// 생성자 주입
 	private final BoardRepository boardRepository;
- 
+
+	private final ReplyRepository replyRepository;
+	private final UserRepository userRepository;
+	
 	//글쓰기
 	@Transactional
 	public void saveForm(BoardDto boardDto, User user) { //title,content
@@ -42,7 +42,7 @@ public class BoardService {
 		return boardRepository.findAll(pageable);
 	}
 	
-	//글 상세보기 
+	//글 상세보기, 댓글 추가
 	@Transactional(readOnly=true)
 	public Board boardView(int id) {
 		return boardRepository.findById(id).orElseThrow(()->{
@@ -80,12 +80,35 @@ public class BoardService {
 	public void boardDelete(int id) {
 		boardRepository.deleteById(id);
 	}
-
-
-
 	
+	//댓글 등록
+	@Transactional
+	public void replyForm(ReplySaveRequestDto replySaveRequestDto) {
+		
+		User user = userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
+			return new IllegalArgumentException("댓글쓰기 실패: 유저Id를 찾을 수 없습니다.");
+		});// 영속화 완료
+		
+		
+		Board board = boardRepository.findById(replySaveRequestDto.getBoardId()).orElseThrow(()->{
+			return new IllegalArgumentException("댓글쓰기 실패: 게시글Id를 찾을 수 없습니다.");
+		});// 영속화 완료
+		
+		Reply reply = Reply.builder()
+				.user(user)
+				.board(board)
+				.content(replySaveRequestDto.getContent())
+				.build();
+		
+		replyRepository.save(reply);
+	}
 	
-	
+	//댓글 삭제
+	@Transactional
+	public void replyDelete(int replyId) {
+		replyRepository.deleteById(replyId);
+	}
+
 
 
 }

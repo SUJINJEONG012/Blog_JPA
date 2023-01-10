@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mysite.project.config.auth.PrincipalDetail;
 import com.mysite.project.dto.BoardDto;
+import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.dto.ResponseDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.service.BoardService;
@@ -22,6 +23,8 @@ public class BoardApiController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	
 	
 	//글쓰기 
 	@PostMapping("/api/board")
@@ -45,8 +48,23 @@ public class BoardApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 	
+	//댓글 등록
+	/*
+	 * 데이터를 받을 때 컨트롤러에서 Dto를 만들어서 받아야되는데,
+	 * 
+	 * */
 	
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto ){	
+		boardService.replyForm(replySaveRequestDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
 	
+	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+	public ResponseDto<Integer> replyDelete(@PathVariable int replyId){
+		boardService.replyDelete(replyId);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
 	
 	
 }
