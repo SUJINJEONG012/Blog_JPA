@@ -100,7 +100,7 @@ public class BoardService {
 				.content(replySaveRequestDto.getContent())
 				.build();
 		
-		replyRepository.save(reply);
+		replyRepository.save(reply); //디비에 저장
 	}
 	
 	//댓글 삭제
