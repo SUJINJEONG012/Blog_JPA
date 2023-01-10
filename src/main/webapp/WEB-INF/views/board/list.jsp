@@ -10,7 +10,7 @@
 			<div class="card-body">
 
 				<h4 class="card-title">${board.title}</h4>
-				<p class="card-text">${board.content}</p>
+				<!--  <p class="card-text">${board.content}</p>-->
 				<p class="card-text">${board.createDate }</p>
 				<p class="card-text">${board.user.username }</p>
 
