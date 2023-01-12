@@ -127,7 +127,7 @@ table .border-button{width:100%;}
 
 .black-button {
 	background: #000;
-	font-size: 11px;
+	font-size: 13px;
 	border: 1px solid #000;
 	cursor: pointer;
 	padding: 0.75rem 0;
@@ -135,6 +135,8 @@ table .border-button{width:100%;}
 	color: #fff;
 	line-height: 1.5;
 	width: 16%;
+	border-radius: 8px;
+	font-weight:300;
 }
 
 .border-button {

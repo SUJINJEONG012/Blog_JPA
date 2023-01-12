@@ -27,8 +27,19 @@
 			</label>
 		</div> -->
 		
-		<button id="btn-login" class="btn btn-primary">로그인 </button>
-		<a href="https://kauth.kakao.com/oauth/authorize?client_id=c90bfc7a8183f140bc7ddd9aa5ac4134&redirect_uri=http://localhost:8010/auth/kakao/callback&response_type=code"><img src="/images/kakao_login_button.png" alt="kakao login button"></a>
+	
+		
+		<div class="btn-wrap d-flex">
+        <button class="black-button me-2" id="btn-login" type="submit">로그인</button>
+        <div> 
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=c90bfc7a8183f140bc7ddd9aa5ac4134&redirect_uri=http://localhost:8010/auth/kakao/callback&response_type=code">
+        <img src="/images/kakao_login_button.png" alt="kakao login button" style="width:50%">
+        </a>
+		</div>
+      
+        </div>
+        
+        
 		
 	</form>
 
