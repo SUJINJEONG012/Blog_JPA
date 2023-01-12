@@ -5,15 +5,20 @@
 <div class="container">
 
 	<form action="/auth/loginProc" method="post">
-		<div class="form-group">
-			<label for="username">username:</label> <input type="text" 
-				class="form-control" placeholder="Enter username" name="username" >
-		</div>
 		
 		
-		<div class="form-group">
-			<label for="password">password</label> <input type="password"
-				class="form-control" placeholder="Enter password" name="password">
+		<div class="mb-4 mt-4">
+            <label for="username" class="form-label">username</label>
+            <input type="text" class="form-input" id="username" placeholder="Enter username" name="username" value="" lang="en">
+        </div>
+        
+        
+		
+		
+		<div class="mb-4 mt-4">
+			<label for="password" class="form-label">password</label> 
+			<input type="password"
+				class="form-input" placeholder="Enter password" name="password" value="" lang="en">
 		</div>
 		
 		<!-- <div class="form-group form-check">
