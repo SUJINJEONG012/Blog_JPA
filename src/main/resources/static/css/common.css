@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/*======================== common =============================*/
+[lang="ko"] {
+	font-family: "Noto Sans KR", "Montserrat", sans-serif, "맑은 고딕",
+		"Nanum Gothic", "나눔 고딕", "돋움", dotum, sans-serif;
+}
+
+[lang="en"] {
+	font-family: "Montserrat", "Noto Sans KR", sans-serif;
+	letter-spacing: 0;
+	font-weight: 400;
+}
+::placeholder {
+  font-size: 11px;
+}
+body {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+td{vertical-align: middle;}
+/*======================== input =============================*/
+.form-input {
+	display: block;
+	width: 100%;
+	padding: 0.75rem 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	border-bottom: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	background-color: #fff;
+	background-clip: padding-box;
+}
+
+.form-radio {
+	display: block;
+	width: 100%;
+	padding: 0.75rem 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	border-bottom: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-bottom: 1px solid #ced4da;
+	}
+
+
+.form-check{
+	display: inline-block;
+	vertical-align: middle;
+    width: 13px;
+    padding-left: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    appearance: auto;
+    border: 1px solid #ced4da;
+    -webkit-appearance: auto;
+    -moz-appearance: initial;
+   
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-bottom: 1px solid #ced4da;
+    min-height: auto;
+    margin: 0;
+    border-radius: 0;
+    
+}
+
+
+/*======================== button =============================*/
+button {
+	border: none;
+	background: transparent;
+}
+
+.drop-btn{
+	display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+   
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:focus {
+	color: #333;
+	text-shadow: none;
+}
+.dropdown-menu{border-radius:0;padding: 0;}
+.dropdown-menu li{}
+.dropdown-list{font-size:11px; display: block; width: 100%;padding: 1rem;}
+
+.dropdown-list.active, .dropdown-list:active{background-color:#000; color:#fff;}
+.dropdown-list:focus, .dropdown-list:hover{background-color:#000; color:#fff;}
+table .black-button{width:100%;}
+table .border-button{width:100%;}
+
+
+.black-button {
+	background: #000;
+	font-size: 11px;
+	border: 1px solid #000;
+	cursor: pointer;
+	padding: 0.75rem 0;
+	text-align: center;
+	color: #fff;
+	line-height: 1.5;
+	width: 16%;
+}
+
+.border-button {
+	border: 1px solid #000;
+	padding: 0.75rem 0;
+	line-height: 1.5;
+	font-size: 11px;
+}
+
+
+.border-btn{
+	border: 1px solid #bababa;
+	padding: 0.375rem 0.75rem;
+	width: 21%;
+    text-align: center;
+	cursor: pointer;
+}
+
+.black-btn{
+	border: 1px solid #000;
+	background:#000;
+	padding: 0.375rem 0.75rem;
+	width: 21%;
+    text-align: center;
+    color:#fff;
+}
+
+.delete-btn{
+	border: 1px solid #ffc100;
+	padding: 0.375rem 0.75rem;
+	width: 21%;
+	background:#ffc100;
+    text-align: center;
+}
+
+/*======================== select =============================*/
+.form-select {
+	width: 90px;
+	margin: 0.75em 0;
+	font-size: 11px;
+
+	}
+
+.select option {
+	background: black;
+	color: #fff;
+	padding: 3px 0;
+}
