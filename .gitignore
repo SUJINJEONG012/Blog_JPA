@@ -22,7 +22,7 @@ target/
 *.ipr
 
 ### 
-application.properties
+application-aws.properties
 
 ### NetBeans ###
 /nbproject/private/
