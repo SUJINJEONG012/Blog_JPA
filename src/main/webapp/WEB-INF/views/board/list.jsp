@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<c:forEach var="board" items="${boards.content}">
+	<c:forEach var="board" items="${boards.contents}">
 		<div class="card">
 
 			<div class="card-body">
@@ -13,7 +13,6 @@
 				<!--  <p class="card-text">${board.content}</p>-->
 				<p class="card-text">${board.createDate }</p>
 				<p class="card-text">${board.user.username }</p>
-
 				<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 			</div>
 		</div>

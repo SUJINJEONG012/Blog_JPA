@@ -38,7 +38,7 @@ public class BoardDto {
 	private User user; 
 
 	@Builder
-	public BoardDto(int id, String title, String content,Timestamp createDate, User user) {
+	public BoardDto(int id, String title, String content, Timestamp createDate, User user) {
 		this.id=id;
 	    this.title=title;
 	    this.content=content;
