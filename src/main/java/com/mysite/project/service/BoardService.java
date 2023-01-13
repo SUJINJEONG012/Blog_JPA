@@ -35,12 +35,13 @@ public class BoardService {
 	}
 
 	
-	
 	//글 목록리스트
 	@Transactional(readOnly=true)
 	public Page<Board> boardList(Pageable pageable) {	
 		return boardRepository.findAll(pageable);
 	}
+	
+	
 	
 	//글 상세보기, 댓글 추가
 	@Transactional(readOnly=true)

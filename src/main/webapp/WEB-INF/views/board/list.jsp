@@ -4,11 +4,10 @@
 
 <div class="container">
 
-	<c:forEach var="board" items="${boards.contents}">
+	<c:forEach var="board" items="${boards.content}">
+	
 		<div class="card">
-
 			<div class="card-body">
-
 				<h4 class="card-title">${board.title}</h4>
 				<!--  <p class="card-text">${board.content}</p>-->
 				<p class="card-text">${board.createDate }</p>

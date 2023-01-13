@@ -52,6 +52,8 @@
 				<c:choose>
 					<c:when test="${empty principal}">
 						<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+								href="/board/boardList">목록</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="/auth/loginForm">로그인</a></li>
 							<li class="nav-item"><a class="nav-link"

@@ -16,17 +16,17 @@ public class MainController {
 	BoardService boardService;
 	
 
-//	@GetMapping("/")
-//	//게시판 목록 갈때 데이터를 가져가야한다.
-//	public String list(Model model,@PageableDefault(size=5, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
-//		model.addAttribute("boards", boardService.boardList(pageable));
-//		return "index"; //viewResolver 작동 
-//	}
-	
-	@GetMapping("/")
-	public String index() {
-		return "index";
+	@GetMapping(value="/")
+	//게시판 목록 갈때 데이터를 가져가야한다.
+	public String list(Model model,@PageableDefault(size=5, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
+		model.addAttribute("boards", boardService.boardList(pageable));
+		return "index"; //viewResolver 작동 
 	}
+	
+//	@GetMapping("/")
+//	public String index() {
+//		return "index";
+//	}
 	
 	
 }
