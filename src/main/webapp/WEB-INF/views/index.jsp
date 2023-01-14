@@ -9,15 +9,29 @@
 
 	   	<c:forEach var="board" items="${boards.content}">
 	
-		<div class="card">
+		<%-- <div class="">
 			<div class="card-body">
 				<h4 class="card-title">${board.title}</h4>
-				<!--  <p class="card-text">${board.content}</p>-->
+				<p class="card-text">${board.content}</p>
 				<p class="card-text">${board.createDate }</p>
 				<p class="card-text">${board.user.username }</p>
 				<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 			</div>
 		</div>
+		 --%>
+
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="`${board.content}`" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">${board.title}</h4>
+   
+    <a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
+  </div>
+</div>
+
+
+
+
 	</c:forEach>
 	                                                                                            
 	

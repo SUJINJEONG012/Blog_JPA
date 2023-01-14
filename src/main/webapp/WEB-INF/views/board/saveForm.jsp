@@ -25,9 +25,46 @@
     
  <script>
       $('.summernote').summernote({
+    	  
         tabsize: 2,
-        height: 300
+        height: 300,
+        lang : 'ko-KR',
+       /*  toolbar : toolbar, */
+       /*  //콜백함수 
+        callbacks :{
+        	onImageUpload: function(file, editor, welEditable){
+        		//파일업로드
+        		for(var i = files.length -1; i >= 0; i--){
+        			uploadSummernoteImageFile(files[i],this);
+        		}
+        	}
+        }; */
+        
+       // $(".summernote").summernote(setting);
       });
+      
+      
+     /*  function sendFile(file, editor){
+  		var data = new FormData();
+  		data.append("file", file);
+  		console.log(file);
+  		$.ajax({
+  			data : data,
+  			type : "POST",
+  			url : "SummerNoteImageFile",
+  			contentType : false,
+  			processData : false,
+  			success : function(data){
+  				console.log(data);
+  				console.log(editor);
+  				$(editor).summernote("insertImage",data.url);
+  			}
+  		});
+  	}
+  */
+
+
+      
  </script>
     
     

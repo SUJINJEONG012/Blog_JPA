@@ -1,5 +1,6 @@
 package com.mysite.project.controller.api;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -8,8 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonObject;
 import com.mysite.project.config.auth.PrincipalDetail;
 import com.mysite.project.dto.BoardDto;
 import com.mysite.project.dto.ReplySaveRequestDto;
@@ -32,6 +39,13 @@ public class BoardApiController {
 		boardService.saveForm(boardDto, principal.getUser());
 		return new ResponseDto<Integer> (HttpStatus.OK.value(),1);
 	}
+	
+	
+
+
+	
+	
+	
 	
 	//글 수정 
 	@PutMapping("/api/board/{id}")

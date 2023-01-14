@@ -1,10 +1,18 @@
 package com.mysite.project.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonObject;
 import com.mysite.project.dto.BoardDto;
 import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.model.Board;
@@ -33,6 +41,8 @@ public class BoardService {
 		boardDto.setUser(user);
 		boardRepository.save(boardDto.toEntity());
 	}
+	
+	
 
 	
 	//글 목록리스트
