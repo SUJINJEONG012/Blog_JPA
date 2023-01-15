@@ -27,6 +27,7 @@ import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.dto.ResponseDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.service.BoardService;
+import com.mysite.project.service.FileService;
 
 @RestController
 public class BoardApiController {
@@ -34,7 +35,8 @@ public class BoardApiController {
 	
 	@Autowired
 	private BoardService boardService;
-	
+	@Autowired
+	private FileService fileService;
 	
 	
 	//글쓰기 

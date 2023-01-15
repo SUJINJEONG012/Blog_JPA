@@ -41,6 +41,10 @@ public class Board {
 	@Lob // 대용량데이터
 	private String content; // 썸머노트라이브러리
 	
+	@Column(nullable = true)
+    private Long fileId;
+	
+	
 	private int count; // 조회수
 
 	

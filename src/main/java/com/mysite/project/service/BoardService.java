@@ -42,7 +42,6 @@ public class BoardService {
 	}
 	
 
-	
 	//글 목록리스트
 	@Transactional(readOnly=true)
 	public Page<Board> boardList(Pageable pageable) {	
