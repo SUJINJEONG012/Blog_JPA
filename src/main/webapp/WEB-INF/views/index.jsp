@@ -9,7 +9,7 @@
 
 	   	<c:forEach var="board" items="${boards.content}">
 	
-		<%-- <div class="">
+		 <div class="">
 			<div class="card-body">
 				<h4 class="card-title">${board.title}</h4>
 				<p class="card-text">${board.content}</p>
@@ -18,10 +18,10 @@
 				<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 			</div>
 		</div>
-		 --%>
+		 
 
-<div class="card" style="width:400px">
-  <img class="card-img-top" src="`${board.content}`" alt="Card image">
+<div class="card">
+ <p class="card-text">${board.content}</p>
   <div class="card-body">
     <h4 class="card-title">${board.title}</h4>
    

@@ -1,19 +1,14 @@
 package com.mysite.project.service;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.UUID;
 
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.JsonObject;
 import com.mysite.project.dto.BoardDto;
+import com.mysite.project.dto.FileDto;
 import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.model.Reply;
@@ -30,7 +25,6 @@ public class BoardService {
 
 	// 생성자 주입
 	private final BoardRepository boardRepository;
-
 	private final ReplyRepository replyRepository;
 	private final UserRepository userRepository;
 	
@@ -41,6 +35,7 @@ public class BoardService {
 		boardDto.setUser(user);
 		boardRepository.save(boardDto.toEntity());
 	}
+
 	
 
 	//글 목록리스트

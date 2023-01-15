@@ -29,8 +29,10 @@ public class BoardDto {
 	private int id; 
 	private String title;
 	private String content;
-	private int count; // 조회수
 	
+	private String customFile;
+	
+	private int count; // 조회수
 	
 	private Timestamp createDate;
 
@@ -38,27 +40,30 @@ public class BoardDto {
 	@JoinColumn(name="userId")
 	private User user; 
 
-	@Builder
-	public BoardDto(int id, String title, String content, Timestamp createDate, User user) {
-		this.id=id;
-	    this.title=title;
-	    this.content=content;	   
-	    this.createDate=createDate;
-	    this.user=user;  
-	}
-	
 	
 	//toEntity()메서드를 통해 Service > Database(Entity)로 Data를 전달할 때 Dto를 통해서 전달
 	public  Board toEntity() { //save
 		Board board = Board.builder()
 				.id(id)
 				.title(title)
-				.content(content)
-				
+				.content(content)	
+				.customFile(customFile)
 				.createDate(createDate)
 				.user(user)
 				.build();
 		return board;
 	}
+	
+	@Builder
+	public BoardDto(int id, String title, String content, String customFile, Timestamp createDate, User user) {
+		this.id=id;
+	    this.title=title;
+	    this.content=content;	 
+	    this.customFile = customFile;
+	    this.createDate=createDate;
+	    this.user=user;  
+	}
+	
+	
 	
 }

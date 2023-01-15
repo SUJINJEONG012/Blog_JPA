@@ -12,6 +12,7 @@
 }
 
 
+
 header{position:relative;}
 
 
@@ -35,4 +36,4 @@ header{position:relative;}
 	background-color: #fff;
 	background-clip: padding-box;
 }
-
+.card img{width: 100% !important;}

@@ -23,6 +23,7 @@ let index = {
 		let data = {
 			title: $("#title").val(),
 			content: $("#content").val(),
+			customFile: $("#customFile").val(), //파일이미지
 		};
 
 		$.ajax({
@@ -39,6 +40,9 @@ let index = {
 		});
 
 	},
+	
+
+      
 
 	update: function() {
 

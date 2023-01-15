@@ -12,6 +12,8 @@
 				<!--  <p class="card-text">${board.content}</p>-->
 				<p class="card-text">${board.createDate }</p>
 				<p class="card-text">${board.user.username }</p>
+				<p class="card-text">${board.customFile }</p>
+				
 				<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 			</div>
 		</div>
