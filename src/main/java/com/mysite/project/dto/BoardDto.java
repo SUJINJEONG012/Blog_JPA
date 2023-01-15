@@ -29,7 +29,6 @@ public class BoardDto {
 	private int id; 
 	private String title;
 	private String content;
-    private Long fileId;
 	private int count; // 조회수
 	
 	
@@ -40,14 +39,12 @@ public class BoardDto {
 	private User user; 
 
 	@Builder
-	public BoardDto(int id, String title, String content, Long fileId, Timestamp createDate, User user) {
+	public BoardDto(int id, String title, String content, Timestamp createDate, User user) {
 		this.id=id;
 	    this.title=title;
-	    this.content=content;
-	    this.fileId = fileId;
+	    this.content=content;	   
 	    this.createDate=createDate;
-	    this.user=user;
-	    
+	    this.user=user;  
 	}
 	
 	
@@ -57,7 +54,7 @@ public class BoardDto {
 				.id(id)
 				.title(title)
 				.content(content)
-				.fileId(fileId)
+				
 				.createDate(createDate)
 				.user(user)
 				.build();
