@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container">
-
+<div class="container cont-height">
+<h2 class="border-bottom pb-4">로그인</h2>
 	<form action="/auth/loginProc" method="post">
 		
 		

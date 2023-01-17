@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.project.dto.BoardDto;
-import com.mysite.project.dto.FileDto;
 import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.model.Reply;
 import com.mysite.project.model.User;
+
 import com.mysite.project.repository.BoardRepository;
 import com.mysite.project.repository.ReplyRepository;
 import com.mysite.project.repository.UserRepository;
@@ -25,15 +25,18 @@ public class BoardService {
 
 	// 생성자 주입
 	private final BoardRepository boardRepository;
+	
+	
 	private final ReplyRepository replyRepository;
 	private final UserRepository userRepository;
 	
 	//글쓰기
 	@Transactional
-	public void saveForm(BoardDto boardDto, User user) { //title,content
+	public void saveForm(BoardDto boardDto, User user){ //title,content
+		
 		boardDto.setCount(0);// 조회수 강제로 넣음
 		boardDto.setUser(user);
-		boardRepository.save(boardDto.toEntity());
+		boardRepository.save(boardDto.toEntity());	
 	}
 
 	
@@ -43,7 +46,6 @@ public class BoardService {
 	public Page<Board> boardList(Pageable pageable) {	
 		return boardRepository.findAll(pageable);
 	}
-	
 	
 	
 	//글 상세보기, 댓글 추가

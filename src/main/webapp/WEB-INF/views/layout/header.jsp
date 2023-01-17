@@ -38,10 +38,10 @@
 
 <body>
 
-	<header>
+	<header class="bg-dark">
 
-		<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-			<a class="navbar-brand" href="/">Angela</a>
+		<nav class="container navbar navbar-expand-md navbar-dark">
+			<a class="navbar-brand" href="/" lang="en">Angela</a>
 			
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#collapsibleNavbar">

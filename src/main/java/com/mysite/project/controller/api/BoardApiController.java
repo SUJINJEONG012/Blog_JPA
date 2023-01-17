@@ -1,8 +1,6 @@
 package com.mysite.project.controller.api;
 
-
-
-
+import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,8 +17,6 @@ import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.dto.ResponseDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.service.BoardService;
-import com.mysite.project.service.FileService;
-
 
 
 @RestController
@@ -32,10 +28,12 @@ public class BoardApiController {
 	
 	//글쓰기 
 	@PostMapping("/api/board")
-	public ResponseDto<Integer> save( @RequestBody BoardDto boardDto, @AuthenticationPrincipal PrincipalDetail principal ){
-		boardService.saveForm(boardDto, principal.getUser());
+	public ResponseDto<Integer> save(@RequestBody BoardDto boardDto , @AuthenticationPrincipal PrincipalDetail principal) throws IllegalStateException, IOException{ //title,conten{
+		boardService.saveForm(boardDto, principal.getUser());	
 		return new ResponseDto<Integer> (HttpStatus.OK.value(),1);
 	}
+	
+	
 	
 
 	//글 수정 

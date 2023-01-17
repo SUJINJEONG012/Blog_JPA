@@ -1,40 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!-- Footer -->
-<footer class="mt-5 p-4 bg-dark text-white text-center">
-  
-   <div class="container text-center text-md-start mt-5">
-    
-   <h6 class="text-uppercase fw-bold py-4">Contact</h6>
-         
-    <div class=" d-flex justify-content-center justify-content-lg-between p-4">
-         
-          
-         
-        
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-         
-          <p>
-          
-            <i class="fas fa-envelope me-3"></i>
-            info@example.com
-          </p>
-         <p><a href="https://github.com/SUJINJEONG012"><i class="fab fa-github me-3"></i> SUJINJEONG012</a></p>
-      </div>
-    
-    </div>
-         
-        
- 
-  <!-- Copyright -->
-  <div class="text-center p-4">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
+
+<footer class=" footer bg-dark text-white">
+	<div class="container-fluid">
+		<div class="footer-wrap">
+			<ul class="">
+				<li><a class="" lang="en" href=""> <i>💌</i>
+						peekaboo32@naver.com
+				</a></li>
+				<li><a class="" lang="en" href=""> <i>📱</i> 010 8635 0281
+				</a></li>
+				<li class=""><a href="https://velog.io/@angela_/series" target="_blank" lang="en"> <i>📚</i>Blog
+				</a></li>
+				<li><a href="https://github.com/SUJINJEONG012" target="_blank" lang="en"> <i>🐱</i>Github
+				</a></li>
+			</ul>
+			<p class="footer-copy" lang="en">© 2023 JEONGSUJIN PORTFOLIO</p>
+		</div>
+
+	</div>
 </footer>
-<!-- Footer -->
+
 
 </body>
 </html>

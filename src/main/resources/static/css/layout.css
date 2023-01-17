@@ -11,15 +11,45 @@
 	font-weight: 400;
 }
 
+header {
+	position: relative;
+}
 
 
-header{position:relative;}
+.cont-height{
+	min-height:600px;
+	margin:50px auto;
+}
+.card-title a{color:#000;}
+
+.card-text {
+    font-size: 15px;
+    width: 245px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 
 .form-label {
-    margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
+
+.form-textarea{
+	display: block;
+	width: 100%;
+	padding: 0.75rem 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	border: 1px solid #ced4da;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-radius: 0.25rem;
+}
 .form-input {
 	display: block;
 	width: 100%;
@@ -36,4 +66,52 @@ header{position:relative;}
 	background-color: #fff;
 	background-clip: padding-box;
 }
-.card img{width: 100% !important;}
+
+.card img {
+	width: 100% !important;
+}
+
+.page-link {
+    color: #fff;
+    background: #000;
+    border: 1px solid #000;
+}
+
+
+/*======================== FOOTER =============================*/
+.footer {
+	padding: 4rem 0;
+}
+
+.footer .footer-wrap ul {
+	display: flex;
+	padding-left: 0;
+}
+
+.footer .footer-wrap>* {
+	color: #fff;
+}
+
+.footer .footer-wrap ul li {
+	
+}
+
+.footer .footer-wrap ul li ~li::before {
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 15px;
+	background-color: #adadad;
+	margin: 0 0.75rem;
+}
+
+.footer .footer-wrap ul li a {
+	font-size: 15px;
+	font-weight: 400;
+	color: #FFF;
+}
+
+.footer-wrap .footer-copy {
+	font-size: 11px;
+	margin-top: 30px;
+}

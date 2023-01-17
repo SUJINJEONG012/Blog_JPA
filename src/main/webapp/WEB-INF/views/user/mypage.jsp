@@ -2,28 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container">
+<div class="container cont-height">
 
+    <h2 class="border-bottom pb-4"> 회원정보</h2>
+	
+	
 	<form>
-	
-	
 	   <!-- 어떤회원이 수정하는지 모르니깐hidden값 넣어주기 -->
 	    <input type="hidden" id="id" value="${principal.user.id}" />
 	   
-		<div class="form-group">
-			<label for="username">이름 :</label> <input type="text"			
-				class="form-control" value="${principal.user.username}"  id="username" readonly>
+		<div class="mb-4 mt-4">
+			<label for="username" class="form-label">이름 </label> <input type="text"			
+				class="form-input" value="${principal.user.username}" id="username" lang="en" readonly>
 		</div>
 		
-		<div class="form-group">
-			<label for=password>비밀번호 </label> <input type="password"
-				class="form-control" id="password">
+		<div class="mb-4 mt-4">
+			<label for="password" class="form-label">비밀번호 </label> 
+			<input type="password"
+				class="form-input" id="password">
 		</div>
 		
 		
-		<div class="form-group">
+		<div class="mb-4 mt-4">
 			<label for="email">이메일 :</label> <input type="email"
-				class="form-control" value="${principal.user.email}" id="email">
+				class="form-input" value="${principal.user.email}" id="email" lang="en">
 		</div>
 
 	</form>

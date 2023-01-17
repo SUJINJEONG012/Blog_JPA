@@ -1,8 +1,10 @@
 package com.mysite.project.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,8 +42,13 @@ public class Board {
 
 	@Lob // 대용량데이터
 	private String content; // 썸머노트라이브러리
-	private String customFile;
+	
+	
+	 private String filename;
+	 private String filepath;
+	 
 	private int count; // 조회수
+
 
 	
 	/*
