@@ -2,9 +2,10 @@
 	pageEncoding="UTF-8"%>
 
 
-<footer class=" footer bg-dark text-white">
+<footer class="footer bg-dark text-white">
+
 	<div class="container-fluid">
-		<div class="footer-wrap">
+		<div class="footer-wrap container">
 			<ul class="">
 				<li><a class="" lang="en" href=""> <i>💌</i>
 						peekaboo32@naver.com
@@ -20,6 +21,7 @@
 		</div>
 
 	</div>
+
 </footer>
 
 

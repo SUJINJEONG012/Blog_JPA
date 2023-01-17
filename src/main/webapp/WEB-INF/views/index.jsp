@@ -31,7 +31,7 @@
 
 
 	<!-- 페이징처리  -->
-	<ul class="pagination justify-content-center">
+	<!-- <ul class="pagination justify-content-center">
 		<c:choose>
 			<c:when test="${boards.first}">
 				<li class="page-item disabled"><a class="page-link"
@@ -57,7 +57,7 @@
 			</c:otherwise>
 		</c:choose>
 
-	</ul>
+	</ul> -->
 </div>
 
 
