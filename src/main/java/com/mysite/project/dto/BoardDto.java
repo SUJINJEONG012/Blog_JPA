@@ -35,8 +35,6 @@ public class BoardDto {
 	private String filepath;
 	private int count; // 조회수
 	
-
-
 	private Timestamp createDate;
 
 	@ManyToOne(fetch = FetchType.EAGER) // 기본전략

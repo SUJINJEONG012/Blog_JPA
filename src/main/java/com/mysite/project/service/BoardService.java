@@ -75,6 +75,7 @@ public class BoardService {
 	//영속화된 board
 	board.setTitle(requestBoard.getTitle());
 	board.setContent(requestBoard.getContent());
+	
 	//해당 함수로 종료시 Service가 종료, 트랜잭션이 종료. 이때 더티체킹
 	//영속화되어있는 Board의 데이터가 달라졌기 때문에 더티체킹이 일어나면서 자동 업데이트가 된다.
 	
