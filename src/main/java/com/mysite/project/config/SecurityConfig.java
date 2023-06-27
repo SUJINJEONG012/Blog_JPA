@@ -22,8 +22,6 @@ public class SecurityConfig{
 	//생성자 주입
 	private PrincipalDetailService principalDetailService;
 	
-
-	
 	// encodePWD() 를 호출하면 new BCryptPasswordEncoder() 객체를 리턴받을 수 있다.
 	@Bean
 	public BCryptPasswordEncoder encodePWD() {

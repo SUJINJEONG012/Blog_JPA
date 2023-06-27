@@ -32,15 +32,15 @@ public class UserDto {
 	private Timestamp createDate;
 
 	
-	@Builder
-	public UserDto(int id, String username, String password, String email,Timestamp createDate, RoleType role) {
-		this.id=id;
-	    this.username=username;
-	    this.password=password;
-	    this.email=email;
-	    this.createDate=createDate;
-	    this.role= role;
-	}
+//	@Builder
+//	public UserDto(int id, String username, String password, String email,Timestamp createDate, RoleType role) {
+//		this.id=id;
+//	    this.username=username;
+//	    this.password=password;
+//	    this.email=email;
+//	    this.createDate=createDate;
+//	    this.role= role;
+//	}
 	
 	
 	//toEntity()메서드를 통해 Service > Database(Entity)로 Data를 전달할 때 Dto를 통해서 전달
