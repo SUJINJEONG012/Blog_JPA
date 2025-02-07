@@ -39,11 +39,52 @@
 
     
  <script>
-      $('.summernote').summernote({  
+     /*  $('.summernote').summernote({  
         tabsize: 2,
         height: 300
-      });
-     
+      }); */
+      $(function(){
+    	  $('.summernote').summernote({ 
+    	    placeholder: '내용',
+    	    tabsize: 2,
+    	    focus: true,
+    	    callbacks:{
+    	      // onImageUpload를 통해 이미지 업로드시 동작 개조 가능
+    	      // 개조하지 않으면 Base64로 이미지가 전환돼서 img태그로 바뀐뒤 본문에 추가된다.
+    	      onImageUpload: function(files){
+    	        sendFile(files[0], this);
+    	      }
+    	    }
+    	  });
+    	});
+      
+      function sendFile(file, editor){
+    	  data = new FormData()
+    	  data.append("img", file)
+    	  // id 'img'로 file form 데이터 추가
+    	  $.ajax({
+    	    data: data,
+    	    type: "POST",
+    	    // 이미지 처리를 할 url
+    	    url: "/api/board",
+    	    cache: false,
+    	    contentType: false,
+    	    // multer-s3를 활용하므로 multipart/form-data형태로 넘겨줘야 한다.
+    	    enctype: "multipart/form-data",
+    	    processData: false,
+    	    success: function (response) {
+    	      var imgurl = $('<img>').attr({
+    	        'src': response,
+    	        // json형태로 반환되는 주소.
+    	        'crossorigin': 'anonymous',
+    	        // crossorigin attr을 삽입하지 않으면 CORS에러가 난다!
+    	    });
+    	      $("#summernote").summernote("insertNode", imgurl[0]);
+    	      // insertNode는 html tag를 summernote 내부에 삽입해주는 기능.
+    	    },
+    	  })
+    	}
+
  </script>
  
 

@@ -44,7 +44,7 @@ public class SecurityConfig{
 	        .csrf().disable()//csrf 토큰 비활성화 (테스트시걸어두는게 좋음)
 	        
 	        .authorizeRequests()
-	        .antMatchers("/","/board/boardList","/auth/**","/js/**","/css/**", "/images/**").permitAll() //로그인하지않고 모두 궈한을 가짐 
+	        .antMatchers("/","/board/boardList","/board/write","/auth/**","/js/**","/css/**", "/images/**").permitAll() //로그인하지않고 모두 궈한을 가짐 
             .anyRequest()
             .authenticated()
             
