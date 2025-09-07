@@ -23,7 +23,7 @@ target/
 
 ### 
 application-aws.properties
-
+application.properties
 
 ### NetBeans ###
 /nbproject/private/
