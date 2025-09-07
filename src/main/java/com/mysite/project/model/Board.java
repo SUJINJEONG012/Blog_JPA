@@ -44,8 +44,8 @@ public class Board {
 	private String content; // 썸머노트라이브러리
 	
 	
-	 private String filename;
-	 private String filepath;
+	private String filename;
+	private String filepath;
 	 
 	private int count; // 조회수
 
@@ -68,6 +68,7 @@ public class Board {
 	@JsonIgnoreProperties({"board"})
 	@OrderBy("id desc")
 	private List<Reply> reply; 
+	
 	
 	@CreationTimestamp
 	private Timestamp createDate;

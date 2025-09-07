@@ -14,8 +14,8 @@
 							<h4 class="card-title">
 							<a href="/board/${board.id}" class="" lang="en">${board.title}</a></h4>
 							<!--  <p class="card-text">${board.content}</p>-->
-							<p class="card-text" lang="en">${board.createDate }</p>
-							<p class="card-text" lang="en">${board.user.username }</p>
+							<p class="card-text" lang="en">${board.createDate}</p>
+							<p class="card-text" lang="en"> ${board.user.username }</p>
 							<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
 						</div>
 					</div>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div class="container cont-height">
 <h2 class="border-bottom pb-4">게시판 상세보기 </h2>
@@ -18,8 +20,23 @@
 			</div>
 
 			<div class="mb-4 mt-4" lang="en">${board.content}</div>
-
+			
+		
 	</div>
+	
+	<div class="mb-4 mt-4">
+    대표이미지 :
+    <c:choose>
+        <c:when test="${fn:endsWith(board.filename, '.pdf')}">
+            <a href="/images/${board.filename}" target="_blank">PDF 보기</a>
+        </c:when>
+        <c:otherwise>
+            <img src="/images/${board.filename}" alt="대표 이미지" style="max-width:200px;">
+        </c:otherwise>
+    </c:choose>
+	</div>
+
+
 	<!-- 댓글 창 만들기 -->
 	<div class="card">
 		<form>
@@ -27,6 +44,8 @@
 				type="hidden" id="boardId" value="${board.id}" />
 			<div class="card-body">
 				<textarea id="reply-content" class="form-textarea" rows="1"
+				
+				
 					placeholder="댓글을 입력해주세요"></textarea>
 			</div>
 			<div class="card-footer">

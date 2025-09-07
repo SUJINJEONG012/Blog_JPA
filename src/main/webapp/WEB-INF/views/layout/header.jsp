@@ -24,7 +24,6 @@
 <link rel="stylesheet" href="/css/layout.css"/>
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!--인터프리터 언어  자바스크립트는  -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

@@ -31,10 +31,11 @@ public class BoardDto {
 	private int id;
 	private String title;
 	private String content;
-	private String filename;
-	private String filepath;
+	private String filename; // DB 저장용
+	private String filepath; // DB 저장용
 	private int count; // 조회수
-	
+	private MultipartFile file; // ⭐ 실제 업로드 파일 받는 용도
+	 
 	private Timestamp createDate;
 
 	@ManyToOne(fetch = FetchType.EAGER) // 기본전략
@@ -46,6 +47,7 @@ public class BoardDto {
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		
 		this.filename= filename;
 		this.filepath= filepath;
 		this.createDate = createDate;

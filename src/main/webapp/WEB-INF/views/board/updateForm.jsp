@@ -20,6 +20,12 @@
 			<textarea class="form-input summernote" rows="5" cols=""
 				id="content">${board.content}</textarea>
 		</div>
+		
+		<!--파일 업로드 -->
+		<div class="mb-4 mt-4">
+			<label for="file" class="form-label">파일첨부</label>
+			<input type="file" class="form-control" placeholder="Enter title" id="title" name="file">
+		</div>
 	</form>
 	<button id="btn-update" class="btn btn-dark">글 수정하기</button>
 </div>

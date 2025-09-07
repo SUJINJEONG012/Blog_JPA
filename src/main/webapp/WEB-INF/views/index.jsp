@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@ include file="./layout/header.jsp"%>
 
 
 <div class="container cont-height">
-<h2 class="border-bottom pb-4">JPA 게시판 만들기 메인</h2>
+	<h2 class="border-bottom pb-4">JPA 게시판 만들기 메인~~</h2>
 	<div class="album py-5">
 
 		<div class="row row-cols-md-3">
@@ -14,10 +17,26 @@
 
 						<div class="card-body">
 							<h4 class="card-title">${board.title}</h4>
-							<!-- <p class="card-text">${board.content}</p> -->
+							<p class="card-text">${board.content}</p>
+
+							<div class="mb-4 mt-4">
+								대표이미지 :
+								<c:choose>
+									<c:when test="${fn:endsWith(board.filename, '.pdf')}">
+										<a href="/images/${board.filename}" target="_blank">PDF 보기</a>
+									</c:when>
+									<c:otherwise>
+										<img src="/images/${board.filename}" alt="대표 이미지"
+											style="max-width: 200px;">
+									</c:otherwise>
+								</c:choose>
+							</div>
+
+
 							<p class="cart-date" lang="en">${board.createDate }</p>
-							<p class="card-text" lang="en">${board.user.username }</p>
+							<p class="card-text" lang="en">작성자 : ${board.user.username }</p>
 							<a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
+
 
 						</div>
 
@@ -31,7 +50,7 @@
 
 
 	<!-- 페이징처리  -->
-	<!-- <ul class="pagination justify-content-center">
+	<%-- <ul class="pagination justify-content-center">
 		<c:choose>
 			<c:when test="${boards.first}">
 				<li class="page-item disabled"><a class="page-link"
@@ -57,7 +76,7 @@
 			</c:otherwise>
 		</c:choose>
 
-	</ul> -->
+	</ul>  --%>
 </div>
 
 

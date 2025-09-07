@@ -19,7 +19,7 @@ public class MainController {
 
 	@GetMapping(value="/")
 	//게시판 목록 갈때 데이터를 가져가야한다.
-	public String list(Model model,@PageableDefault(size=3, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
+	public String list(Model model,@PageableDefault(size=6, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
 		model.addAttribute("boards", boardService.boardList(pageable));
 		return "index"; //viewResolver 작동 
 	}

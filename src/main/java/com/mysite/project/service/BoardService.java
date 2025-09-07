@@ -2,17 +2,20 @@ package com.mysite.project.service;
 
 
 
+import java.io.File;
+import java.io.IOException;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mysite.project.dto.BoardDto;
 import com.mysite.project.dto.ReplySaveRequestDto;
 import com.mysite.project.model.Board;
 import com.mysite.project.model.Reply;
 import com.mysite.project.model.User;
-
 import com.mysite.project.repository.BoardRepository;
 import com.mysite.project.repository.ReplyRepository;
 import com.mysite.project.repository.UserRepository;
@@ -25,22 +28,41 @@ public class BoardService {
 
 	// 생성자 주입
 	private final BoardRepository boardRepository;
-	
+	private final FileService fileService;
 	
 	private final ReplyRepository replyRepository;
 	private final UserRepository userRepository;
 	
 	//글쓰기
 	@Transactional
-	public void saveForm(BoardDto boardDto, User user){ //title,content
-		
+	public void saveForm(String title, String content, MultipartFile file, User user) throws IOException{ //title,content
+		BoardDto boardDto = new BoardDto();
+	    boardDto.setTitle(title);
+	    boardDto.setContent(content);
+	    boardDto.setFile(file); // MultipartFile
+
 		boardDto.setCount(0);// 조회수 강제로 넣음
 		boardDto.setUser(user);
+		
+		String filename = null;
+		String filepath = null;
+		
+		if(file !=null && !file.isEmpty()) {
+			filename = file.getOriginalFilename();
+			filepath= "/Users/jeongsujin/Desktop/test/" + filename;
+			File dest = new File(filepath);
+			
+			dest.getParentFile().mkdirs();
+			file.transferTo(dest);
+			
+			boardDto.setFilename(filename); // ⬅️ 추가
+		    boardDto.setFilepath(filepath); // ⬅️ 추가
+		    
+		}
+		
 		boardRepository.save(boardDto.toEntity());	
 	}
-
 	
-
 	//글 목록리스트
 	@Transactional(readOnly=true)
 	public Page<Board> boardList(Pageable pageable) {	
